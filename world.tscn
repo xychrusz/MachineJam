@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://2qmqfla0hhk7"]
+
+[ext_resource type="PackedScene" uid="uid://dwjjacagsl8jl" path="res://player.tscn" id="1_a65ch"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_46vx2"]
+size = Vector2(25, 25)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8nnua"]
+data = PackedVector3Array(12.5, 0, 12.5, -12.5, 0, 12.5, 12.5, 0, -12.5, -12.5, 0, 12.5, -12.5, 0, -12.5, 12.5, 0, -12.5)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ppsg0"]
+
+[sub_resource type="Sky" id="Sky_lfbtn"]
+sky_material = SubResource("ProceduralSkyMaterial_ppsg0")
+
+[sub_resource type="Environment" id="Environment_6rwlm"]
+background_mode = 2
+sky = SubResource("Sky_lfbtn")
+
+[node name="World" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_46vx2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("ConcavePolygonShape3D_8nnua")
+
+[node name="Player" parent="." instance=ExtResource("1_a65ch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.60671, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6rwlm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
