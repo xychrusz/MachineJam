@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://2qmqfla0hhk7"]
+[gd_scene load_steps=11 format=3 uid="uid://2qmqfla0hhk7"]
 
 [ext_resource type="PackedScene" uid="uid://dwjjacagsl8jl" path="res://player.tscn" id="1_a65ch"]
 [ext_resource type="Script" path="res://world.gd" id="1_si1wx"]
-[ext_resource type="PackedScene" uid="uid://c00l0gdi2iiyn" path="res://interactable.tscn" id="2_nywug"]
+[ext_resource type="PackedScene" uid="uid://c00l0gdi2iiyn" path="res://timeButton.tscn" id="2_nywug"]
 [ext_resource type="PackedScene" uid="uid://24ydbwyw3fau" path="res://tempTimer.tscn" id="4_qyrbb"]
+[ext_resource type="PackedScene" uid="uid://coccr6guo8kfr" path="res://door_button.tscn" id="5_wfgq5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_46vx2"]
 size = Vector2(25, 25)
@@ -77,10 +78,23 @@ mesh = SubResource("PlaneMesh_46vx2")
 shape = SubResource("ConcavePolygonShape3D_8nnua")
 
 [node name="TheSphere" parent="." instance=ExtResource("2_nywug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4247, 0.869507, 0)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 
 [node name="tempTimer" parent="." instance=ExtResource("4_qyrbb")]
+
+[node name="Door" type="StaticBody3D" parent="."]
+transform = Transform3D(8.74228e-08, -1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -1, 1, 8.74228e-08, 4.37114e-08, 2.48458, 12.5211, -0.285601)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door"]
+mesh = SubResource("PlaneMesh_46vx2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door"]
+shape = SubResource("ConcavePolygonShape3D_8nnua")
+
+[node name="DoorButton" parent="." instance=ExtResource("5_wfgq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.979985, -2.3781)
