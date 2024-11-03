@@ -1,0 +1,206 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7w1wdmiwjfmd"]
+
+[ext_resource type="Script" path="res://NumpadTitle.gd" id="1_aful1"]
+[ext_resource type="Script" path="res://PastResult.gd" id="2_8q3e0"]
+[ext_resource type="Script" path="res://codegenerator.gd" id="3_colg7"]
+[ext_resource type="Script" path="res://light1.gd" id="4_stx6h"]
+[ext_resource type="Script" path="res://light2.gd" id="5_lss8n"]
+[ext_resource type="Script" path="res://light3.gd" id="6_li3es"]
+[ext_resource type="Script" path="res://light4.gd" id="7_2fm1v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x73rt"]
+font_size = 64
+
+[node name="Passcode Puzzle" type="Node3D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -306.0
+offset_right = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.35, 0.309167, 0.28, 1)
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -124.0
+offset_top = -348.0
+offset_right = 124.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 3
+
+[node name="Button" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "3"
+
+[node name="Button4" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "6"
+
+[node name="Button7" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "9"
+
+[node name="ButtonBS" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "⌫"
+
+[node name="Button0" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "0"
+
+[node name="ButtonC" type="Button" parent="ColorRect/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "C"
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -115.5
+offset_right = 144.0
+offset_bottom = -55.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 37
+placeholder_text = "0 0 0 0"
+alignment = 1
+max_length = 7
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+script = ExtResource("1_aful1")
+
+[node name="PastResult" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -303.0
+offset_right = 144.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 37
+horizontal_alignment = 1
+vertical_alignment = 2
+max_lines_visible = 4
+script = ExtResource("2_8q3e0")
+
+[node name="answer" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = -270.0
+offset_right = -67.0
+offset_bottom = 90.0
+label_settings = SubResource("LabelSettings_x73rt")
+clip_text = true
+script = ExtResource("3_colg7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -808.0
+offset_top = -80.0
+offset_right = -476.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Light1" type="ColorRect" parent="ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("4_stx6h")
+
+[node name="Light2" type="ColorRect" parent="ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("5_lss8n")
+
+[node name="Light3" type="ColorRect" parent="ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("6_li3es")
+
+[node name="Light4" type="ColorRect" parent="ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("7_2fm1v")
+
+[connection signal="pressed" from="ColorRect/GridContainer/Button" to="ColorRect/LineEdit" method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/GridContainer/Button2" to="ColorRect/LineEdit" method="_on_button_2_pressed"]
+[connection signal="pressed" from="ColorRect/GridContainer/Button3" to="ColorRect/LineEdit" method="_on_button_3_pressed"]
+[connection signal="pressed" from="ColorRect/GridContainer/Button4" to="ColorRect/LineEdit" method="_on_button_4_pressed"]
+[connection signal="pressed" from="ColorRect/GridContainer/Button5" to="ColorRect/LineEdit" method="_on_button_5_pressed"]
+[connection signal="pressed" from="ColorRect/GridContainer/Button6" to="ColorRect/LineEdit" method="_on_button_6_pressed"]
+[connection signal="pressed" from="ColorRect/GridContainer/Button7" to="ColorRect/LineEdit" method="_on_button_7_pressed"]
+[connection signal="pressed" from="ColorRect/GridContainer/Button8" to="ColorRect/LineEdit" method="_on_button_8_pressed"]
+[connection signal="pressed" from="ColorRect/GridContainer/Button9" to="ColorRect/LineEdit" method="_on_button_9_pressed"]
+[connection signal="pressed" from="ColorRect/GridContainer/ButtonBS" to="ColorRect/LineEdit" method="_on_button_bs_pressed"]
+[connection signal="pressed" from="ColorRect/GridContainer/Button0" to="ColorRect/LineEdit" method="_on_button_0_pressed"]
+[connection signal="pressed" from="ColorRect/GridContainer/ButtonC" to="ColorRect/LineEdit" method="_on_button_c_pressed"]
+[connection signal="text_submitted" from="ColorRect/LineEdit" to="ColorRect/PastResult" method="_on_line_edit_text_submitted"]
+[connection signal="text_submitted" from="ColorRect/LineEdit" to="ColorRect/answer" method="_on_line_edit_text_submitted"]
