@@ -5,6 +5,13 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY := 0.1
 
+# Get the "RayCast3D" node that is a child of the player node.
+@onready var ray_cast: RayCast3D = $"Camera3D/RayCast3D"
+
+@onready var interactables = get_tree().get_nodes_in_group("interactable")
+
+
+
 func _ready() -> void:
 	# Capture the mouse when the game starts.
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -17,6 +24,10 @@ func _process(_delta: float) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	var collider = ray_cast.get_collider()
+	if Input.is_action_just_pressed("click"):
+		if interactables.has(collider):
+			collider.on_clicked()
 
 
 func _input(event: InputEvent) -> void:
